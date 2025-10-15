@@ -1,0 +1,615 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DISH Loyalty Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dishBlue: '#2F3947',
+                        dishLightBlue: '#F36C2F',
+                        dishOrange: '#F78A54',
+                        dishGray: '#F4F5F7'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25), transparent 55%),
+                        radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.15), transparent 45%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.2), transparent 55%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900">
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-14">
+        <section class="rounded-3xl bg-white shadow-sm ring-1 ring-slate-200 overflow-hidden">
+            <div class="h-2 bg-dishLightBlue"></div>
+            <div class="px-6 py-10 sm:px-10">
+                <div class="max-w-3xl space-y-6">
+                    <span class="inline-flex items-center gap-2 rounded-full bg-dishLightBlue/10 px-3 py-1 text-xs font-semibold text-dishLightBlue">
+                        <i class="fa-solid fa-life-ring"></i> Support
+                    </span>
+                    <h1 class="text-3xl sm:text-4xl font-semibold text-dishBlue">DISH Loyalty: Alles wat je nodig hebt voor succes</h1>
+                    <p class="text-base text-slate-600">Bekijk de stappen om live te gaan, ontdek best practices voor campagnes of neem contact op met onze specialisten.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#chat" class="inline-flex items-center gap-2 rounded-lg border border-dishLightBlue/30 px-5 py-3 text-sm font-semibold text-dishLightBlue transition hover:bg-dishLightBlue hover:text-white">
+                            <i class="fa-solid fa-robot"></i> Snelle hulp met de DISH Assistent
+                        </a>
+                        <a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-dishLightBlue px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-dishOrange">
+                            <i class="fa-solid fa-headset"></i> Neem contact op met de Eijsink Helpdesk
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section aria-labelledby="quick-actions">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <h2 id="quick-actions" class="text-2xl font-semibold text-dishBlue">Wat wil je vandaag doen?</h2>
+                <a href="#faq" class="text-sm font-semibold text-dishLightBlue hover:text-dishOrange transition">Bekijk veelgestelde vragen</a>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <a href="#" class="group flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg">
+                    <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-dishLightBlue/10 text-dishLightBlue text-xl">
+                        <i class="fa-solid fa-rocket"></i>
+                    </span>
+                    <div>
+                        <p class="text-lg font-semibold text-slate-700">Onboarding starten</p>
+                        <p class="text-sm text-slate-500">Stap-voor-stap gids om je loyaltyprogramma te starten.</p>
+                    </div>
+                    <span class="mt-auto text-sm font-semibold text-dishLightBlue group-hover:text-dishOrange">Bekijk gids</span>
+                </a>
+                <a href="#" class="group flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg">
+                    <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-dishLightBlue/10 text-dishLightBlue text-xl">
+                        <i class="fa-solid fa-gift"></i>
+                    </span>
+                    <div>
+                        <p class="text-lg font-semibold text-slate-700">Je programma promoten</p>
+                        <p class="text-sm text-slate-500">Download marketingmateriaal en tips voor medewerkers.</p>
+                    </div>
+                    <span class="mt-auto text-sm font-semibold text-dishLightBlue group-hover:text-dishOrange">Open toolkit</span>
+                </a>
+                <a href="#" class="group flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg">
+                    <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-dishLightBlue/10 text-dishLightBlue text-xl">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </span>
+                    <div>
+                        <p class="text-lg font-semibold text-slate-700">Resultaten analyseren</p>
+                        <p class="text-sm text-slate-500">Leer hoe je naar de cijfers kijkt en resultaten optimaliseert.</p>
+                    </div>
+                    <span class="mt-auto text-sm font-semibold text-dishLightBlue group-hover:text-dishOrange">Bekijk resultaten</span>
+                </a>
+                <a href="#contact" class="group flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg">
+                    <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-dishLightBlue/10 text-dishLightBlue text-xl">
+                        <i class="fa-solid fa-life-ring"></i>
+                    </span>
+                    <div>
+                        <p class="text-lg font-semibold text-slate-700">Helpdesk</p>
+                        <p class="text-sm text-slate-500">Kom je er niet uit met de Assistent? Stuur je vraag.</p>
+                    </div>
+                    <span class="mt-auto text-sm font-semibold text-dishLightBlue group-hover:text-dishOrange">Stuur je vraag</span>
+                </a>
+            </div>
+        </section>
+        <section aria-labelledby="kb" class="space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <h2 id="kb" class="text-2xl font-semibold text-dishBlue">Kennisbank</h2>
+                <a href="#" class="text-sm font-semibold text-dishLightBlue hover:text-dishOrange transition">Alle artikelen bekijken</a>
+            </div>
+            <div class="grid gap-6 lg:grid-cols-3">
+                <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <div class="flex items-start gap-4">
+                        <span class="text-2xl text-dishLightBlue"><i class="fa-solid fa-user-plus"></i></span>
+                        <div class="space-y-3">
+                            <h3 class="text-lg font-semibold text-slate-700">Starten met DISH Loyalty</h3>
+                            <ul class="space-y-2 text-sm text-slate-500">
+                                <li><a href="#" class="hover:text-dishOrange transition">Nieuwe rollen aanmaken</a></li>
+                                <li><a href="#" class="hover:text-dishOrange transition">Snel starten via Gidsen</a></li>
+                                <li><a href="#" class="hover:text-dishOrange transition">Checklist voor livegang</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <div class="flex items-start gap-4">
+                        <span class="text-2xl text-dishLightBlue"><i class="fa-solid fa-bullhorn"></i></span>
+                        <div class="space-y-3">
+                            <h3 class="text-lg font-semibold text-slate-700">Programmabeheer</h3>
+                            <ul class="space-y-2 text-sm text-slate-500">
+                                <li><a href="#" class="hover:text-dishOrange transition">Segmentatie & doelgroepen</a></li>
+                                <li><a href="#" class="hover:text-dishOrange transition">Rewards en voorwaarden bepalen</a></li>
+                                <li><a href="#" class="hover:text-dishOrange transition">Automatiseringen bouwen</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <div class="flex items-start gap-4">
+                        <span class="text-2xl text-dishLightBlue"><i class="fa-solid fa-gauge-high"></i></span>
+                        <div class="space-y-3">
+                            <h3 class="text-lg font-semibold text-slate-700">Strategieen & resultaten</h3>
+                            <ul class="space-y-2 text-sm text-slate-500">
+                                <li><a href="#" class="hover:text-dishOrange transition">Welke loyaltystrategie werkt?</a></li>
+                                <li><a href="#" class="hover:text-dishOrange transition">Hoe meet je loyaliteit en retentie?</a></li>
+                                <li><a href="#" class="hover:text-dishOrange transition">Hoe doe je het beter dan de concurrent?</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section aria-labelledby="status" class="grid gap-6 lg:grid-cols-3">
+            <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 lg:col-span-2">
+                <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
+                    <h2 id="status" class="text-2xl font-semibold text-dishBlue">Live support & status</h2>
+                    <span class="inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-sm font-semibold text-green-700">
+                        <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse" aria-hidden="true"></span>
+                        Systemen operationeel
+                    </span>
+                </div>
+                <dl class="mt-6 grid gap-6 md:grid-cols-2">
+                    <div class="space-y-3">
+                        <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Supportkanalen</dt>
+                        <dd class="space-y-2 text-sm text-slate-600">
+                            <p><i class="fa-solid fa-phone text-dishLightBlue mr-2"></i>Telefonisch: +31 (0)85 401 1444</p>
+                            <p><i class="fa-solid fa-comments text-dishLightBlue mr-2"></i>DISH chat: 24 uur per dag</p>
+                        </dd>
+                    </div>
+                    <div class="space-y-3">
+                        <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Laatste updates</dt>
+                        <dd class="space-y-2 text-sm text-slate-600">
+                            <p><strong>21 sep</strong> - Verbeterde sync voor alle members beschikbaar.</p>
+                            <p><strong>09 sep</strong> - Nieuwe campagne templates voor herfstacties.</p>
+                            <p><strong>01 sep</strong> - Onderhoud succesvol afgerond, geen verstoringen.</p>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+            <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 space-y-4">
+                <h3 class="text-lg font-semibold text-slate-700">Hulp nodig bij onboarding?</h3>
+                <p class="text-sm text-slate-600">Plan een sessie met een Eijsink-specialist zodat je binnen 30 minuten live kunt met je programma.</p>
+                <a href="#" class="inline-flex items-center justify-center gap-2 rounded-xl bg-dishLightBlue px-4 py-3 text-sm font-semibold text-white transition hover:bg-dishLightBlue">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Plan onboardingcall
+                </a>
+                <p class="text-xs text-slate-400">Beschikbaar op werkdagen tussen 09:00 en 17:00 CET.</p>
+            </div>
+        </section>
+        <section aria-labelledby="resources" class="space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <h2 id="resources" class="text-2xl font-semibold text-dishBlue">Handige resources</h2>
+                <a href="#" class="text-sm font-semibold text-dishLightBlue hover:text-dishOrange transition">Bekijk alle downloads</a>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                <article class="flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <div class="flex items-center gap-3 text-dishBlue">
+                        <i class="fa-solid fa-book-open text-xl"></i>
+                        <h3 class="text-lg font-semibold text-slate-700">Implementatiegids (PDF)</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 flex-1">Alle stappen in een document.</p>
+                    <a href="#" class="text-sm font-semibold text-dishLightBlue hover:text-dishOrange transition">Download bestand</a>
+                </article>
+                <article class="flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <div class="flex items-center gap-3 text-dishBlue">
+                        <i class="fa-solid fa-bullseye text-xl"></i>
+                        <h3 class="text-lg font-semibold text-slate-700">Marketing toolkit</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 flex-1">Posters, social media visuals en e-mailtemplates om je gasten te activeren.</p>
+                    <a href="#" class="text-sm font-semibold text-dishLightBlue hover:text-dishOrange transition">Open bibliotheek</a>
+                </article>
+                <article class="flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <div class="flex items-center gap-3 text-dishBlue">
+                        <i class="fa-solid fa-video text-xl"></i>
+                        <h3 class="text-lg font-semibold text-slate-700">Academy & webinars</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 flex-1">Leer van succesverhalen en krijg tips rechtstreeks van onze experts.</p>
+                    <a href="#" class="text-sm font-semibold text-dishLightBlue hover:text-dishOrange transition">Bekijk agenda</a>
+                </article>
+            </div>
+        </section>
+        <section id="chat" aria-labelledby="assistant" class="grid gap-8 lg:grid-cols-2">
+            <div class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                <div class="flex items-start justify-between gap-4 mb-6">
+                    <div>
+                        <h2 id="assistant" class="text-2xl font-semibold text-dishBlue">Chat met de DISH Assistent</h2>
+                        <p class="text-sm text-slate-500">Vraag naar functionaliteiten, how-to's of check of je het goed doet.</p>
+                    </div>
+                    <span class="inline-flex items-center gap-2 rounded-full bg-dishLightBlue/10 px-3 py-1 text-xs font-semibold text-dishBlue">
+                        <i class="fa-solid fa-bolt"></i>
+                        AI support
+                    </span>
+                </div>
+                <div id="chat-stream" class="mb-6 h-80 overflow-y-auto rounded-2xl border border-slate-100 bg-slate-50 p-4" aria-live="polite">
+                    <div class="text-left mb-3">
+                        <div class="inline-flex max-w-full rounded-2xl bg-white px-4 py-3 text-sm leading-relaxed text-slate-700 shadow-sm">
+                            Hallo! Ik ben de DISH Assistent. Stel gerust je vraag, bijvoorbeeld over het opzetten van je programma of het instellen van beloningen.
+                        </div>
+                    </div>
+                </div>
+                <form id="chat-form" class="space-y-3" autocomplete="off">
+                    <div class="flex gap-3">
+                        <label class="sr-only" for="chat-input">Typ je vraag</label>
+                        <input id="chat-input" type="text" name="chat" placeholder="Typ uw vraag..." class="flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 shadow-sm focus:border-dishLightBlue focus:outline-none focus:ring-2 focus:ring-dishLightBlue/30">
+                        <button id="chat-send" type="submit" class="inline-flex items-center gap-2 rounded-xl bg-dishLightBlue px-4 py-3 text-sm font-semibold text-white transition hover:bg-dishOrange disabled:cursor-not-allowed disabled:opacity-60">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Verstuur
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="space-y-6">
+                <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <h3 class="text-lg font-semibold text-slate-700">Snelle antwoorden</h3>
+                    <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                        <li><i class="fa-solid fa-circle-check text-dishLightBlue mr-2"></i> Wanneer coupons gebruiken?</li>
+                        <li><i class="fa-solid fa-circle-check text-dishLightBlue mr-2"></i> Beloningsstructuur aanpassen</li>
+                        <li><i class="fa-solid fa-circle-check text-dishLightBlue mr-2"></i> Rapportages downloaden</li>
+                    </ul>
+                </article>
+                <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <h3 class="text-lg font-semibold text-slate-700">Complexe vraag?</h3>
+                    <p class="mt-3 text-sm text-slate-600">Gebruik het formulier hieronder. Voeg voorbeelden, screenshots of gast-ID's toe zodat we je sneller helpen.</p>
+                    <a href="#contact" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-dishLightBlue hover:text-dishOrange transition">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Naar het contactformulier
+                    </a>
+                </article>
+            </div>
+        </section>
+        <section id="contact" aria-labelledby="contact-title" class="grid gap-10 lg:grid-cols-2">
+            <div class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                <h2 id="contact-title" class="text-2xl font-semibold text-dishBlue">Stuur ons een bericht</h2>
+                <p class="mt-2 text-sm text-slate-500">We reageren binnen een werkdag. Voeg zoveel mogelijk context toe, zoals member-id's of betrokken locaties.</p>
+                <form class="mt-6 space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-600" for="name">Naam *</label>
+                        <input id="name" type="text" required class="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 shadow-sm focus:border-dishLightBlue focus:outline-none focus:ring-2 focus:ring-dishLightBlue/30">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-600" for="restaurant">Restaurant / keten *</label>
+                        <input id="restaurant" type="text" required class="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 shadow-sm focus:border-dishLightBlue focus:outline-none focus:ring-2 focus:ring-dishLightBlue/30">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-600" for="email">E-mail *</label>
+                        <input id="email" type="email" required class="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 shadow-sm focus:border-dishLightBlue focus:outline-none focus:ring-2 focus:ring-dishLightBlue/30">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-600" for="topic">Onderwerp</label>
+                        <select id="topic" class="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 shadow-sm focus:border-dishLightBlue focus:outline-none focus:ring-2 focus:ring-dishLightBlue/30">
+                            <option>Ik heb een vraag over onboarding</option>
+                            <option>Ik heb hulp nodig bij een instelling</option>
+                            <option>Rapportage of data-vraag</option>
+                            <option>Technische storingen of incident</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-600" for="message">Jouw vraag *</label>
+                        <textarea id="message" rows="4" required class="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 shadow-sm focus:border-dishLightBlue focus:outline-none focus:ring-2 focus:ring-dishLightBlue/30" placeholder="Beschrijf uw vraag of verzoek"></textarea>
+                    </div>
+                    <button type="submit" class="w-full rounded-xl bg-dishLightBlue px-4 py-3 text-sm font-semibold text-white transition hover:bg-dishOrange">Verzend bericht</button>
+                </form>
+            </div>
+            <div class="space-y-6">
+                <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <h3 class="text-lg font-semibold text-slate-700">Onze supportaanpak</h3>
+                    <p class="mt-2 text-sm text-slate-600">Jouw vaste Account Manager volgt ieder ticket en zorgt voor terugkoppeling. Spoedmelding? Bel ons direct zodat we escaleren.</p>
+                </article>
+                <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <h3 class="text-lg font-semibold text-slate-700">Handige contactdetails</h3>
+                    <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                        <li><i class="fa-solid fa-envelope text-dishLightBlue mr-2"></i>helpdesk@eijsink.nl</li>
+                    </ul>
+                </article>
+                <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <h3 class="text-lg font-semibold text-slate-700">Nieuwsbrief DISH Loyalty ontvangen?</h3>
+                    <p class="mt-2 text-sm text-slate-600">Schrijf je in en blijf op de hoogte van succes-cases, onderhoud of nieuwe functies.</p>
+                    <a href="#" class="mt-4 inline-flex items-center justify-center gap-2 rounded-xl border border-dishLightBlue px-4 py-3 text-sm font-semibold text-dishLightBlue transition hover:border-dishOrange hover:text-dishOrange">
+                        <i class="fa-solid fa-bell"></i>
+                        Meld mij aan
+                    </a>
+                </article>
+            </div>
+        </section>
+        <section id="faq" aria-labelledby="faq-title" class="space-y-6">
+            <h2 id="faq-title" class="text-2xl font-semibold text-dishBlue">Veelgestelde vragen</h2>
+            <div class="space-y-4">
+                <details class="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <summary class="flex cursor-pointer items-center justify-between text-lg font-semibold text-slate-700">
+                        Hoe activeer ik een nieuwe beloning?
+                        <span class="ml-4 text-dishLightBlue transition group-open:rotate-45"><i class="fa-solid fa-plus"></i></span>
+                    </summary>
+                    <p class="mt-3 text-sm text-slate-600">Ga naar Campagnes &gt; Beloningen, kies "Nieuwe beloning" en selecteer de doelgroep. Onze wizard helpt je de voorwaarden te bepalen. Activeer pas na controle door je Accountmanager.</p>
+                </details>
+                <details class="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <summary class="flex cursor-pointer items-center justify-between text-lg font-semibold text-slate-700">
+                        Kan ik meerdere locaties aan een campagne koppelen?
+                        <span class="ml-4 text-dishLightBlue transition group-open:rotate-45"><i class="fa-solid fa-plus"></i></span>
+                    </summary>
+                    <p class="mt-3 text-sm text-slate-600">Ja, selecteer bij het aanmaken van een campagne de optie "Meerdere locaties" en vink de gewenste locaties aan. Gebruik filters om snel te segmenteren op regio.</p>
+                </details>
+                <details class="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                    <summary class="flex cursor-pointer items-center justify-between text-lg font-semibold text-slate-700">
+                        Hoe meet ik het succes van mijn programma?
+                        <span class="ml-4 text-dishLightBlue transition group-open:rotate-45"><i class="fa-solid fa-plus"></i></span>
+                    </summary>
+                    <p class="mt-3 text-sm text-slate-600">Gebruik het loyaliteitsdashboard om retentie, gemiddelde besteding en actieve leden te volgen. Combineer dit met POS-data en stel doelen in voor automatische alerts.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+	<script>
+	(function () {
+		const chatForm   = document.getElementById('chat-form');
+		const chatInput  = document.getElementById('chat-input');
+		const chatStream = document.getElementById('chat-stream');
+		const sendButton = document.getElementById('chat-send');
+		if (!chatForm || !chatInput || !chatStream || !sendButton) return;
+
+		// --- CONFIG ---
+		const ENDPOINT = 'https://n8n.nas.nl/webhook/dlkbchatbot';
+		const SESSION_KEY = 'dlkb_session';
+		const SESSION_TTL_MS = 120 * 60 * 1000; // 120 minutes
+
+		// --- SESSION HELPERS (localStorage with TTL) ---
+		function getSessionId() {
+			try {
+				const raw = localStorage.getItem(SESSION_KEY);
+				if (!raw) return '';
+				const { id, ts } = JSON.parse(raw);
+				if (!id) return '';
+				if (Date.now() - (ts || 0) > SESSION_TTL_MS) {
+					localStorage.removeItem(SESSION_KEY);
+					return '';
+				}
+				return id;
+			} catch { return ''; }
+		}
+		function setSessionId(id) {
+			if (!id) return;
+			try { localStorage.setItem(SESSION_KEY, JSON.stringify({ id, ts: Date.now() })); } catch {}
+		}
+		function refreshSessionTtl() {
+			const id = getSessionId();
+			if (id) setSessionId(id);
+		}
+
+		const state = { sending: false };
+		const scrollToBottom = () => { chatStream.scrollTop = chatStream.scrollHeight; };
+		const bubbleClasses = {
+			user: 'inline-flex max-w-full rounded-2xl bg-dishLightBlue px-4 py-3 text-sm leading-relaxed text-white shadow-sm',
+			assistant: 'inline-flex max-w-full rounded-2xl bg-white px-4 py-3 text-sm leading-relaxed text-slate-700 shadow-sm',
+			status: 'inline-flex max-w-full rounded-2xl bg-slate-100 px-4 py-3 text-xs leading-relaxed text-slate-600 uppercase tracking-wide shadow-sm',
+			error: 'inline-flex max-w-full rounded-2xl bg-red-100 px-4 py-3 text-sm leading-relaxed text-red-700 shadow-sm'
+		};
+		const addBubble = (role, text, options = {}) => {
+			const wrapper = document.createElement('div');
+			wrapper.className = role === 'user' ? 'mb-3 text-right' : 'mb-3 text-left';
+			const bubble = document.createElement('div');
+			bubble.className = bubbleClasses[role] || bubbleClasses.assistant;
+			bubble.textContent = text;
+			wrapper.appendChild(bubble);
+			if (Array.isArray(options.metaNodes) && options.metaNodes.length) {
+				const footer = document.createElement('div');
+				footer.className = 'mt-2 flex flex-wrap gap-2 text-xs text-slate-500';
+				options.metaNodes.forEach((node) => footer.appendChild(node));
+				wrapper.appendChild(footer);
+			}
+			chatStream.appendChild(wrapper);
+			scrollToBottom();
+			return wrapper;
+		};
+		const buildConfidenceNode = (confidence) => {
+			if (typeof confidence !== 'number') return null;
+			const badge = document.createElement('span');
+			badge.className = 'inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 font-semibold text-slate-600';
+			const icon = document.createElement('i');
+			icon.className = 'fa-solid fa-gauge text-dishLightBlue';
+			badge.appendChild(icon);
+			badge.appendChild(document.createTextNode(`${Math.round(confidence * 100)}%`));
+			return badge;
+		};
+		const tryParseJson = (value) => {
+			if (typeof value !== 'string') return value;
+			try { return JSON.parse(value); } catch { return null; }
+		};
+		const coerceToText = (value, depth = 0) => {
+			if (value == null || depth > 6) return '';
+			if (typeof value === 'string') return value.trim();
+			if (typeof value === 'number' || typeof value === 'boolean') return String(value).trim();
+			if (Array.isArray(value)) {
+				for (const entry of value) {
+					const candidate = coerceToText(entry, depth + 1);
+					if (candidate) return candidate;
+				}
+				return '';
+			}
+			if (typeof value === 'object') {
+				const preferredKeys = [
+					'answer_rendered','final_answer','answer','text','message','content','body',
+					'value','result','output','output_text','plainText','plain_text','data'
+				];
+				for (const key of preferredKeys) {
+					if (key in value) {
+						const candidate = coerceToText(value[key], depth + 1);
+						if (candidate) return candidate;
+					}
+				}
+				for (const key of Object.keys(value)) {
+					if (preferredKeys.includes(key)) continue;
+					const candidate = coerceToText(value[key], depth + 1);
+					if (candidate) return candidate;
+				}
+				try {
+					const json = JSON.stringify(value);
+					if (json && json !== '{}' && json !== '[]') return json;
+				} catch {}
+			}
+			return '';
+		};
+		const pickFirstText = (...values) => {
+			for (const value of values) {
+				const text = coerceToText(value);
+				if (text) return text;
+			}
+			return '';
+		};
+		const parseAssistantPayload = (payload, rawText = '') => {
+			const toArray = (value, depth = 0) => {
+				if (value == null || depth > 5) return [];
+				if (Array.isArray(value)) return value;
+				if (typeof value === 'string') {
+					try { return toArray(JSON.parse(value), depth + 1); } catch { return []; }
+				}
+				if (typeof value === 'object') {
+					if (Array.isArray(value.data)) return value.data;
+					if (Array.isArray(value.items)) return value.items;
+					if (Array.isArray(value.messages)) return value.messages;
+					if (Array.isArray(value.results)) return value.results;
+					if (Array.isArray(value.output)) return value.output;
+					if (Array.isArray(value.outputs)) return value.outputs;
+					return [value];
+				}
+				return [];
+			};
+			const asAnswerJson = (value) => {
+				if (typeof value === 'string') {
+					try { value = JSON.parse(value); } catch { return {}; }
+				}
+				return (value && typeof value === 'object') ? value : {};
+			};
+			const messages = toArray(payload);
+			const candidate = messages.find((entry) =>
+				entry && typeof entry === 'object' && (entry.role === 'assistant' || entry.answer_json || entry.final_answer || entry.text)
+			) || messages[0] || {};
+			const answerJson = asAnswerJson(candidate.answer_json);
+			let answer = pickFirstText(
+				answerJson.answer_rendered,
+				answerJson.final_answer,
+				answerJson.answer,
+				answerJson.text,
+				candidate.final_answer,
+				candidate.answer,
+				candidate.text
+			);
+			if (!answer && typeof rawText === 'string') answer = rawText.trim();
+			const confidence = (typeof answerJson.confidence === 'number')
+				? answerJson.confidence
+				: (typeof candidate.confidence === 'number' ? candidate.confidence : null);
+			return {
+				answer,
+				confidence,
+				rawFallback: rawText
+			};
+		};
+
+		// UI state
+		const sendLabelIdle = sendButton.innerHTML;
+		const sendLabelBusy = '<span class="inline-flex items-center gap-2"><i class="fa-solid fa-circle-notch fa-spin"></i> Versturen...</span>';
+		const setSendingState = (value) => {
+			state.sending = value;
+			if (value) {
+				sendButton.setAttribute('aria-busy', 'true');
+				sendButton.innerHTML = sendLabelBusy;
+			} else {
+				sendButton.removeAttribute('aria-busy');
+				sendButton.innerHTML = sendLabelIdle;
+			}
+			sendButton.disabled = value || !chatInput.value.trim();
+		};
+		chatInput.addEventListener('input', () => {
+			if (state.sending) return;
+			sendButton.disabled = !chatInput.value.trim();
+		});
+
+		// Main submit
+		chatForm.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const message = chatInput.value.trim();
+			if (!message) return;
+
+			setSendingState(true);
+			addBubble('user', message);
+			chatInput.value = '';
+
+			// Always refresh TTL on activity
+			refreshSessionTtl();
+
+			const pending = addBubble('status', 'Beantwoorden...');
+			const session_id = getSessionId();
+
+			fetch(ENDPOINT, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+				body: JSON.stringify({ query: message, session_id })  // <-- send session_id if present
+			})
+			.then(async (response) => {
+				const contentType = response.headers.get('content-type') || '';
+				const rawText = await response.text();
+				console.debug('[dlkbchatbot] HTTP', response.status, contentType);
+				console.debug('[dlkbchatbot] payload', rawText);
+				let payload;
+				try { payload = JSON.parse(rawText); } catch { payload = rawText; }
+				return { response, payload, rawText };
+			})
+			.then(({ response, payload, rawText }) => {
+				pending.remove();
+
+				// If server returned a session_id, persist/refresh it
+				if (payload && typeof payload === 'object' && payload.session_id) {
+					setSessionId(payload.session_id);
+				}
+
+				if (!response.ok) {
+					const fallback = parseAssistantPayload(payload, rawText);
+					const rawMessage = (fallback.answer && fallback.answer.trim())
+						|| (typeof payload === 'string' && payload.trim())
+						|| (typeof rawText === 'string' && rawText.trim())
+						|| '';
+					const detail = rawMessage ? rawMessage.split(/\r?\n/, 1)[0] : `Status ${response.status}`;
+					addBubble('error', 'De server gaf een foutmelding (' + detail + '). Probeer het later opnieuw of gebruik het formulier.');
+					return;
+				}
+
+				const parsed = parseAssistantPayload(payload, rawText);
+				const cleanedAnswer = (parsed.answer || '').replace(/=\{\{.*?\}\}/g, '').trim();
+				const fallbackAnswer = (parsed.rawFallback || '').replace(/=\{\{.*?\}\}/g, '').trim();
+				const finalAnswer = cleanedAnswer || fallbackAnswer;
+				if (!finalAnswer) {
+					addBubble('error', 'Antwoord ontvangen, maar zonder inhoud. Probeer het opnieuw of neem contact op met ons team.');
+					return;
+				}
+
+				const metaNodes = [];
+				const confidenceNode = buildConfidenceNode(parsed.confidence);
+				if (confidenceNode) metaNodes.push(confidenceNode);
+
+				addBubble('assistant', finalAnswer, { metaNodes });
+			})
+			.catch((error) => {
+				console.error('[dlkbchatbot] error', error);
+				if (pending.isConnected) pending.remove();
+				const detail = (error && error.message) ? error.message : String(error);
+				addBubble('error', 'Er ging iets mis bij het ophalen van een antwoord (' + detail + '). Probeer het later opnieuw of gebruik het formulier.');
+			})
+			.finally(() => {
+				setSendingState(false);
+				chatInput.focus();
+			});
+		});
+
+		sendButton.disabled = true;
+	})();
+	</script>
+</body>
+</html>
